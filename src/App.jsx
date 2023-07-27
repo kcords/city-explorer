@@ -7,12 +7,26 @@ import Col from "react-bootstrap/Col";
 import SearchBar from "./components/SearchBar";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentCity: null,
+    };
+  }
+
+  setCurrentCity = (currentCity) => {
+    console.dir(currentCity);
+    this.setState({ currentCity });
+  };
+
   render() {
+    const { setCurrentCity } = this;
+
     return (
       <Container>
         <Row>
           <Col className="my-4">
-            <SearchBar />
+            <SearchBar setCurrentCity={setCurrentCity} />
           </Col>
         </Row>
       </Container>

@@ -10,11 +10,12 @@ export default class SearchBar extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
+      errorMessage: null,
     };
   }
 
   handleSearchInput = ({ target: { value: searchTerm } }) => {
-    this.setState({ searchTerm });
+    this.setState({ searchTerm, errorMessage: null });
   };
 
   handleSubmit = async (event) => {
@@ -23,9 +24,16 @@ export default class SearchBar extends React.Component {
     const apiURL = `https://us1.locationiq.com/v1/search?key=${
       import.meta.env.VITE_LOCATIONIQ_API_KEY
     }&q=${this.state.searchTerm}&format=json`;
-    const {
-      data: [currentCity],
-    } = await axios.get(apiURL);
+    let currentCity = null;
+    try {
+      const { data } = await axios.get(apiURL);
+      if (data[0]) currentCity = data[0];
+    } catch (error) {
+      const { error: errorMessage } = error?.response?.data || {
+        error: "Unknown error, please try again",
+      };
+      this.setState({ errorMessage });
+    }
     setCurrentCity(currentCity);
   };
 
@@ -33,7 +41,7 @@ export default class SearchBar extends React.Component {
     const {
       handleSearchInput,
       handleSubmit,
-      state: { searchTerm },
+      state: { searchTerm, errorMessage },
     } = this;
 
     return (
@@ -46,10 +54,14 @@ export default class SearchBar extends React.Component {
             onChange={handleSearchInput}
             onKeyPress={({ key }) => key === "enter" && handleSubmit()}
             value={searchTerm}
+            isInvalid={errorMessage}
           />
           <Button type="submit" disabled={!searchTerm}>
             {searchTerm ? "Explore!" : "Ready?"}
           </Button>
+          <Form.Control.Feedback type="invalid">
+            {errorMessage}
+          </Form.Control.Feedback>
         </InputGroup>
       </Form>
     );

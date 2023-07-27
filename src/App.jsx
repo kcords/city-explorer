@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import SearchBar from "./components/SearchBar";
+import { SearchBar, CityDetails } from "./components/";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -20,7 +20,10 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { setCurrentCity } = this;
+    const {
+      setCurrentCity,
+      state: { currentCity },
+    } = this;
 
     return (
       <Container>
@@ -29,6 +32,11 @@ export default class App extends React.Component {
             <SearchBar setCurrentCity={setCurrentCity} />
           </Col>
         </Row>
+        {currentCity && (
+          <Row>
+            <CityDetails currentCity={currentCity} />
+          </Row>
+        )}
       </Container>
     );
   }

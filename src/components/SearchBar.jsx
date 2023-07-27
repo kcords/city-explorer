@@ -21,9 +21,11 @@ export default class SearchBar extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { setCurrentCity } = this.props;
+
     const apiURL = `https://us1.locationiq.com/v1/search?key=${
       import.meta.env.VITE_LOCATIONIQ_API_KEY
     }&q=${this.state.searchTerm}&format=json`;
+
     let currentCity = null;
     try {
       const { data } = await axios.get(apiURL);
@@ -34,6 +36,7 @@ export default class SearchBar extends React.Component {
       };
       this.setState({ errorMessage });
     }
+
     setCurrentCity(currentCity);
   };
 

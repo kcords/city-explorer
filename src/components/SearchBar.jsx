@@ -30,11 +30,12 @@ export default class SearchBar extends React.Component {
     try {
       const { data } = await axios.get(apiURL);
       if (data[0]) currentCity = data[0];
-    } catch (error) {
-      const { error: errorMessage } = error?.response?.data || {
+    } catch ({ response }) {
+      const { error } = response?.data || {
         error: "Unknown error, please try again",
       };
-      this.setState({ errorMessage });
+      const { status } = response;
+      this.setState({ errorMessage: `${status} ${error}` });
     }
 
     setCurrentCity(currentCity);

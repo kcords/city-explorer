@@ -11,10 +11,10 @@ export default class CityDetails extends React.Component {
     }&center=${lat},${lon}&zoom=12&scale=2`;
     return (
       <>
-        <Table borderless className="shadow-sm">
+        <Table borderless className="p-3 shadow-sm rounded">
           <thead>
             <tr>
-              <th>City</th>
+              <th className="text-break text-wrap">City</th>
               <th>Latitude</th>
               <th>Longitude</th>
             </tr>

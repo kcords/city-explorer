@@ -72,6 +72,7 @@ export default class SearchBar extends React.Component {
           <Button
             type={errorMessage ? "reset" : "submit"}
             disabled={!searchTerm}
+            className="rounded-end"
           >
             {errorMessage ? "Start over" : searchTerm ? "Explore!" : "Ready?"}
           </Button>

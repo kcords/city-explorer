@@ -37,15 +37,23 @@ export default class SearchBar extends React.Component {
     setCurrentCity(currentCity);
   };
 
+  handleReset = () => {
+    this.setState({
+      searchTerm: "",
+      errorMessage: null,
+    });
+  };
+
   render() {
     const {
       handleSearchInput,
       handleSubmit,
+      handleReset,
       state: { searchTerm, errorMessage },
     } = this;
 
     return (
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} onReset={handleReset}>
         <InputGroup>
           <InputGroup.Text>Search</InputGroup.Text>
           <Form.Control
@@ -56,8 +64,11 @@ export default class SearchBar extends React.Component {
             value={searchTerm}
             isInvalid={errorMessage}
           />
-          <Button type="submit" disabled={!searchTerm}>
-            {searchTerm ? "Explore!" : "Ready?"}
+          <Button
+            type={errorMessage ? "reset" : "submit"}
+            disabled={!searchTerm}
+          >
+            {errorMessage ? "Start over" : searchTerm ? "Explore!" : "Ready?"}
           </Button>
           <Form.Control.Feedback type="invalid">
             {errorMessage}

@@ -26,17 +26,23 @@ export default class App extends React.Component {
     } = this;
 
     return (
-      <Container>
-        <Row>
-          <Col className="my-4">
-            <SearchBar setCurrentCity={setCurrentCity} />
+      <Container fluid className="min-vh-100 bg-info bg-gradient">
+        <Row className="justify-content-center">
+          <Col className="py-5 min-vh-100 bg-light" xl={8}>
+            <Row>
+              <Col>
+                <SearchBar setCurrentCity={setCurrentCity} />
+              </Col>
+            </Row>
+            {currentCity && (
+              <Row className="py-5 justify-content-center w-100 mx-auto">
+                <Col className="w-100">
+                  <CityDetails currentCity={currentCity} />
+                </Col>
+              </Row>
+            )}
           </Col>
         </Row>
-        {currentCity && (
-          <Row>
-            <CityDetails currentCity={currentCity} />
-          </Row>
-        )}
       </Container>
     );
   }

@@ -28,7 +28,10 @@ export default class App extends React.Component {
     return (
       <Container fluid className="min-vh-100 bg-info bg-gradient">
         <Row className="justify-content-center">
-          <Col className="py-5 min-vh-100 bg-light" xl={8}>
+          <Col
+            className="p-5 min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle border-1"
+            xl={8}
+          >
             <Row>
               <Col>
                 <SearchBar setCurrentCity={setCurrentCity} />

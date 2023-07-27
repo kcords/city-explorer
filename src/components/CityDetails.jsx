@@ -11,7 +11,7 @@ export default class CityDetails extends React.Component {
     }&center=${lat},${lon}&zoom=12&scale=2`;
     return (
       <>
-        <Table borderless>
+        <Table borderless className="shadow-sm">
           <thead>
             <tr>
               <th>City</th>
@@ -30,7 +30,7 @@ export default class CityDetails extends React.Component {
         <img
           src={mapSrc}
           alt={`Map of ${display_name}`}
-          className="object-fit-contain img-fluid mx-auto border rounded"
+          className="object-fit-contain img-fluid mx-auto border shadow-sm rounded"
         />
       </>
     );

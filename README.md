@@ -3,35 +3,21 @@
 
 ## Overview
 
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+City explorer allows a user to search for a city and view data relating to that city.
 
 ## Getting Started
 
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+This app can be accessed on the web at [https://kcords-city-explorer.netlify.com](https://kcords-city-explorer.netlify.com).
+
+If running locally, please use `npm start`
 
 ## Architecture
 
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This is built using Vite and React.
 
 ## Change Log
 
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+07-27-2023 9:00pm - Application initial launch with search and city view
 
 ## Credit and Collaborations
-
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-
-
----
-
-Name of feature: ________________________________
-
-Estimate of time needed to complete: _____
-
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
+[Axios](https://axios-http.com/docs/)

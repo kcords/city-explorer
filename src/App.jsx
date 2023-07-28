@@ -15,7 +15,6 @@ export default class App extends React.Component {
   }
 
   setCurrentCity = (currentCity) => {
-    console.dir(currentCity);
     this.setState({ currentCity });
   };
 

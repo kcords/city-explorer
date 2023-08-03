@@ -11,17 +11,19 @@ export default class CityDetails extends React.Component {
       <Table borderless className="p-3 shadow-sm rounded">
         <thead>
           <tr>
-            <th colSpan={4} className="text-break text-wrap">
+            <th colSpan={2} className="text-break text-wrap">
               <h3>{display_name}</h3>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>Latitude</th>
-            <td> {lat}</td>
-            <th>Longitude</th>
-            <td>{lon}</td>
+            <th className="text-break text-wrap">Latitude</th>
+            <th className="text-break text-wrap">Longitude</th>
+          </tr>
+          <tr>
+            <td className="text-break text-wrap"> {lat}</td>
+            <td className="text-break text-wrap">{lon}</td>
           </tr>
         </tbody>
       </Table>

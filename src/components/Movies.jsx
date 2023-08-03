@@ -28,14 +28,9 @@ export default class Movies extends React.Component {
                 }) => (
                   <Carousel.Item key={title} interval={AUTO_INTERVAL}>
                     <Card className="vh-40">
-                      <Card.Img
-                        variant="top"
-                        src={image_url}
-                        alt={title}
-                        // className="w-auto mh-40"
-                        // height="400"
-                        // width="400"
-                      />
+                      {image_url && (
+                        <Card.Img variant="top" src={image_url} alt={title} />
+                      )}
                       <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>

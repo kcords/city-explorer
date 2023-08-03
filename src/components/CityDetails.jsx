@@ -1,40 +1,29 @@
 import React from "react";
 
 import Table from "react-bootstrap/Table";
-import Weather from './Weather'
 
 export default class CityDetails extends React.Component {
   render() {
-    const { currentCity: { display_name, lat, lon } } = this.props;
-    const [ cityName ] = display_name.split(',')
-    const mapSrc = `https://maps.locationiq.com/v3/staticmap?key=${
-      import.meta.env.VITE_LOCATIONIQ_API_KEY
-    }&center=${lat},${lon}&zoom=12&scale=2`;
+    const {
+      currentCity: { display_name, lat, lon },
+    } = this.props;
     return (
-      <>
-        <Table borderless className="p-3 shadow-sm rounded">
-          <thead>
-            <tr>
-              <th className="text-break text-wrap">City</th>
-              <th>Latitude</th>
-              <th>Longitude</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{display_name}</td>
-              <td> {lat}</td>
-              <td>{lon}</td>
-            </tr>
-          </tbody>
-        </Table>
-        <Weather key={cityName} cityName={cityName} lat={lat} lon={lon} />
-        <img
-          src={mapSrc}
-          alt={`Map of ${display_name}`}
-          className="object-fit-contain img-fluid mx-auto border shadow-sm rounded"
-        />
-      </>
+      <Table borderless className="p-3 shadow-sm rounded">
+        <thead>
+          <tr>
+            <th className="text-break text-wrap">City</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{display_name}</td>
+            <td> {lat}</td>
+            <td>{lon}</td>
+          </tr>
+        </tbody>
+      </Table>
     );
   }
 }

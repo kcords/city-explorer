@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { SearchBar, CityDetails } from "./components/";
+import { SearchBar, City } from "./components/";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ export default class App extends React.Component {
             {currentCity && (
               <Row className="py-5 justify-content-center w-100 mx-auto">
                 <Col className="w-100">
-                  <CityDetails currentCity={currentCity} />
+                  <City currentCity={currentCity} />
                 </Col>
               </Row>
             )}

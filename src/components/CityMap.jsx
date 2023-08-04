@@ -15,7 +15,7 @@ export default class CityDetails extends React.Component {
     return (
       <>
         <h3>Area Map</h3>
-        <Table borderless className="p-3 shadow-sm rounded">
+        <Table borderless className="p-3 shadow-sm rounded w-100">
           <thead>
             <tr>
               <th colSpan={2} className="text-break text-wrap">

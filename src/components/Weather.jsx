@@ -1,10 +1,25 @@
 import React from "react";
+import { getWeatherForecast } from "../assets/axios.js";
 
 import Table from "react-bootstrap/Table";
 
 export default class Weather extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      forecasts: [],
+      errorMessage: null,
+    };
+  }
+
+  componentDidMount = async () => {
+    const { currentCity } = this.props;
+    const stateUpdate = await getWeatherForecast(currentCity);
+    this.setState(stateUpdate);
+  };
+
   render() {
-    const { forecasts, errorMessage } = this.props;
+    const { forecasts, errorMessage } = this.state;
     return (
       <>
         <h3>7-day Forecast</h3>

@@ -14,7 +14,7 @@ export default class Movies extends React.Component {
     return (
       <>
         <h3>Popular Movies</h3>
-        <Carousel className="vh-40">
+        <Carousel wrap className="vh-40">
           {movies
             ? movies?.map(
                 ({

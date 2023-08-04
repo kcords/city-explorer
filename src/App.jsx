@@ -31,6 +31,9 @@ export default class App extends React.Component {
             className="p-5 min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle border-1"
             xl={8}
           >
+            <header className="mb-3">
+              <h1>City Explorer</h1>
+            </header>
             <Row>
               <Col>
                 <SearchBar setCurrentCity={setCurrentCity} />

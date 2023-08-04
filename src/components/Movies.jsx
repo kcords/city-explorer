@@ -33,23 +33,21 @@ export default class Movies extends React.Component {
                       )}
                       <Card.Body>
                         <Card.Title>{title}</Card.Title>
-                        <Card.Text>
-                          <p>{overview}</p>
-                          <ListGroup>
-                            <ListGroup.Item>
-                              Release Date: {released_on}
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                              Popularity ranking: {popularity}
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                              Total Votes: {total_votes}
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                              Vote Average: {average_votes}
-                            </ListGroup.Item>
-                          </ListGroup>
-                        </Card.Text>
+                        <Card.Text>{overview}</Card.Text>
+                        <ListGroup>
+                          <ListGroup.Item>
+                            Release Date: {released_on}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Popularity ranking: {popularity}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Total Votes: {total_votes}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Vote Average: {average_votes}
+                          </ListGroup.Item>
+                        </ListGroup>
                       </Card.Body>
                     </Card>
                   </Carousel.Item>

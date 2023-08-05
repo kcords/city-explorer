@@ -1,9 +1,10 @@
 import React from "react";
-import { getWeatherForecast } from "../assets/axios.js";
+import { getWeatherForecast } from "../../assets/axios.js";
 
 import Table from "react-bootstrap/Table";
+import ForecastItem from "./ForecastItem";
 
-export default class Weather extends React.Component {
+export default class Forecast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,26 +33,12 @@ export default class Weather extends React.Component {
                 </td>
               </tr>
             ) : (
-              forecasts.map(({ date, description }) => {
-                const dateObj = new Date(date);
-                const options = {
-                  weekday: "short",
-                  month: "short",
-                  day: "numeric",
-                  timeZone: "UTC",
-                };
-                const formattedDate = new Intl.DateTimeFormat(
-                  "en-US",
-                  options
-                ).format(dateObj);
-
-                return (
-                  <tr key={date + description}>
-                    <td className="text-break text-wrap">{formattedDate}</td>
-                    <td className="text-break text-wrap">{description}</td>
-                  </tr>
-                );
-              })
+              forecasts.map((forecast) => (
+                <ForecastItem
+                  key={`${forecast.date}${forecast.description}`}
+                  forecast={forecast}
+                />
+              ))
             )}
           </tbody>
         </Table>

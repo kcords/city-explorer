@@ -2,7 +2,7 @@ import React from "react";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { CityMap, Weather, Movies } from "./";
+import { CityMap, Forecast, MovieCarousel } from "./";
 
 export default class CityDetails extends React.Component {
   render() {
@@ -22,10 +22,13 @@ export default class CityDetails extends React.Component {
         <Row className="mb-2">
           <Col xs={12} lg={6}>
             <CityMap key={`map-${cityName}`} currentCity={currentCity} />
-            <Weather key={`weather-${cityName}`} currentCity={currentCity} />
+            <Forecast key={`weather-${cityName}`} currentCity={currentCity} />
           </Col>
           <Col xs={12} lg={6}>
-            <Movies key={`movies-${cityName}`} currentCity={currentCity} />
+            <MovieCarousel
+              key={`movies-${cityName}`}
+              currentCity={currentCity}
+            />
           </Col>
         </Row>
         <Row className="mb-2">

@@ -8,9 +8,9 @@ export default class CityDetails extends React.Component {
       currentCity: { display_name, lat, lon },
     } = this.props;
 
-    const mapSrc = `https://maps.locationiq.com/v3/staticmap?key=${
-      import.meta.env.VITE_LOCATIONIQ_API_KEY
-    }&center=${lat},${lon}&zoom=12&scale=2`;
+    const { VITE_SERVER_URL } = import.meta.env;
+
+    const mapSrc = `${VITE_SERVER_URL}/map?lat=${lat}&lon=${lon}`;
 
     return (
       <>

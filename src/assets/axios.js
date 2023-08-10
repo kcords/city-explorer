@@ -29,3 +29,17 @@ export const getTopMovies = async ({ display_name }) => {
     return { errorMessage };
   }
 };
+
+export const getLocalRestaurants = async ({ display_name, lat, lon }) => {
+  const [cityName] = display_name.split(",");
+  const url = `${
+    import.meta.env.VITE_SERVER_URL
+  }/yelp?searchQuery=${cityName}&lat=${lat}&lon=${lon}`;
+
+  try {
+    const { data: restaurants } = await axios.get(url);
+    return { restaurants };
+  } catch ({ response: { statusText: errorMessage } }) {
+    return { errorMessage };
+  }
+};

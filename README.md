@@ -1,5 +1,5 @@
 **Author**: Kyle Cordell
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.4 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 
@@ -17,7 +17,10 @@ This is built using Vite and React.
 
 ## Change Log
 
-07-27-2023 9:00pm - Application initial launch with search and city view
+08-10-2023 - Added recommended restaurants from Yelp for searched city
+...
+07-27-2023 - Application initial launch with search and city view
 
 ## Credit and Collaborations
 [Axios](https://axios-http.com/docs/)
+[Star Ratings Inspiration](https://blog.petefowler.dev/how-to-make-a-star-rating-display-in-react-thats-better-than-the-one-on-yelpcom)

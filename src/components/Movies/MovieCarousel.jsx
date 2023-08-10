@@ -24,12 +24,16 @@ export default class MovieCarousel extends React.Component {
 
     const SECONDS = 1000;
     const AUTO_INTERVAL = 15 * SECONDS;
+    const strings = Object.freeze({
+      title: "Popular Movies",
+      defaultErrMsg: "No movie data available",
+    });
 
     return (
       <>
-        <h3>Popular Movies</h3>
+        <h3>{strings.title}</h3>
         {errorMessage || movies.length < 1 ? (
-          errorMessage || "No movie data available"
+          errorMessage || strings.defaultErrMsg
         ) : (
           <Carousel wrap className="vh-40">
             {movies?.map((movie) => (

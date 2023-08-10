@@ -24,6 +24,10 @@ export default class App extends React.Component {
       state: { currentCity },
     } = this;
 
+    const strings = Object.freeze({
+      title: "City Explorer",
+    });
+
     return (
       <Container fluid className="min-vh-100 bg-info bg-gradient">
         <Row className="justify-content-center">
@@ -32,7 +36,7 @@ export default class App extends React.Component {
             xl={8}
           >
             <header className="mb-3">
-              <h1>City Explorer</h1>
+              <h1>{strings.title}</h1>
             </header>
             <Row>
               <Col>

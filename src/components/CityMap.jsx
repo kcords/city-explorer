@@ -11,10 +11,13 @@ export default class CityDetails extends React.Component {
     const { VITE_SERVER_URL } = import.meta.env;
 
     const mapSrc = `${VITE_SERVER_URL}/map?lat=${lat}&lon=${lon}`;
+    const strings = Object.freeze({
+      title: "Area Map",
+    });
 
     return (
       <>
-        <h3>Area Map</h3>
+        <h3>{strings.title}</h3>
         <Table borderless className="p-3 shadow-sm rounded w-100">
           <thead>
             <tr>

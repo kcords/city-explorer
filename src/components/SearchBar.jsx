@@ -57,12 +57,24 @@ export default class SearchBar extends React.Component {
       state: { searchTerm, errorMessage },
     } = this;
 
+    const strings = Object.freeze({
+      search: {
+        label: "Search",
+        placeholder: "Input your city search here...",
+      },
+      button: {
+        disabled: "Ready?",
+        search: "Explore!",
+        reset: "Start over",
+      },
+    });
+
     return (
       <Form onSubmit={handleSubmit} onReset={handleReset}>
         <InputGroup>
-          <InputGroup.Text>Search</InputGroup.Text>
+          <InputGroup.Text>{strings.search.label}</InputGroup.Text>
           <Form.Control
-            placeholder="Input your city search here..."
+            placeholder={strings.search.placeholder}
             aria-label="City search input"
             onChange={handleSearchInput}
             onKeyPress={({ key }) => key === "enter" && handleSubmit()}
@@ -74,7 +86,11 @@ export default class SearchBar extends React.Component {
             disabled={!searchTerm}
             className="rounded-end"
           >
-            {errorMessage ? "Start over" : searchTerm ? "Explore!" : "Ready?"}
+            {errorMessage
+              ? strings.button.reset
+              : searchTerm
+              ? strings.button.search
+              : strings.button.disabled}
           </Button>
           <Form.Control.Feedback type="invalid">
             {errorMessage}

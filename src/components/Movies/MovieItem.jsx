@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "react-bootstrap/Card";
+import Placeholder from "react-bootstrap/Placeholder";
 import ListGroup from "react-bootstrap/ListGroup";
 
 export default class MovieItem extends React.Component {
@@ -18,7 +19,11 @@ export default class MovieItem extends React.Component {
 
     return (
       <Card className="vh-40">
-        {image_url && <Card.Img variant="top" src={image_url} alt={title} />}
+        {image_url ? (
+          <Card.Img variant="top" src={image_url} alt={title} />
+        ) : (
+          <Placeholder as={Card.Img} size="lg" />
+        )}
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{overview}</Card.Text>

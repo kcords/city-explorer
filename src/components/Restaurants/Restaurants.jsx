@@ -21,10 +21,10 @@ export default class Restaurants extends React.Component {
 
   render() {
     const { restaurants, errorMessage } = this.state;
-    const strings = {
+    const strings = Object.freeze({
       title: "Top Local Restaurants",
       defaultErrMsg: "No restaurant data available",
-    };
+    });
 
     return (
       <>

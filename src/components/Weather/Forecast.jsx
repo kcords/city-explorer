@@ -21,15 +21,21 @@ export default class Forecast extends React.Component {
 
   render() {
     const { forecasts, errorMessage } = this.state;
+
+    const strings = Object.freeze({
+      title: "7-day Forecast",
+      defaultErrMsg: "No weather data available",
+    });
+
     return (
       <>
-        <h3>7-day Forecast</h3>
+        <h3>{strings.title}</h3>
         <Table borderless striped className="p-3 shadow-sm rounded">
           <tbody>
             {errorMessage || forecasts.length < 1 ? (
               <tr key={errorMessage}>
                 <td colSpan={2} className="text-break text-wrap">
-                  {errorMessage || `No weather data available`}
+                  {errorMessage || strings.defaultErrMsg}
                 </td>
               </tr>
             ) : (
